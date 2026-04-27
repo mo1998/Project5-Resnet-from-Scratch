@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
-from models import ResNet18
+from model import ResNet18
 
 # 1. Hardware & Hyperparameters
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -30,3 +30,8 @@ trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size, shuff
 
 testset = torchvision.datasets.CIFAR100(root='./data', train=False, download=True, transform=transform_test)
 testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle=False, num_workers=2)
+
+# 3. Initialize Model (Toggle use_bn=False for Week 1 experiment)
+net = ResNet18(num_classes=100, use_bn=False).to(device)
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.SGD(net.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4)
