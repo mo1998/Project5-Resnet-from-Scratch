@@ -6,6 +6,7 @@ This project explores the implementation of ResNet-18, the impact of Batch Norma
 
 - `model.py`: ResNet-18 implementation from scratch.
 - `train.py`: Basic training script for the scratch model.
+- `train_v2.py`: Refined training script using transfer learning and advanced augmentation. Saves `best_resnet18_cifar100.pth`.
 - `compare_bn.py`: Experiment comparing training with and without Batch Normalization (Week 1 & 2). Supports toggling augmentation and setting epochs.
 - `transfer_learning.py`: Script to fine-tune a pretrained ResNet-18 on CIFAR-100 (Week 2). Logs both accuracy and training loss.
 - `train_advanced.py`: Advanced training with Cutout, Mixup, and Cosine Annealing (Week 3).
@@ -30,12 +31,18 @@ python compare_bn.py --aug --epochs 10
 ```
 Logs to `results/resnet18_no_bn_aug.json` and `results/resnet18_with_bn_aug.json`. Generates `bn_comparison_aug.png`.
 
-### 2. Transfer Learning
-Fine-tune a pretrained model:
+### 2. Transfer Learning (Standard & Refined)
+**Basic Transfer Learning:**
 ```bash
 python transfer_learning.py
 ```
-Logs results to `results/resnet18_transfer.json` (includes convergence data).
+Logs results to `results/resnet18_transfer.json`.
+
+**Refined Transfer Learning (v2):**
+```bash
+python train_v2.py
+```
+Uses advanced augmentation and saves the best model as `best_resnet18_cifar100.pth`.
 
 ### 3. Advanced Training (Week 3)
 Train with Cutout and Mixup:
