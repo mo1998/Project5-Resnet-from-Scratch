@@ -16,6 +16,10 @@ This project explores the implementation of ResNet-18, the impact of Batch Norma
 
 ## How to Run
 
+### 0. Quick Start (Jupyter Notebook)
+For a guided walkthrough of the entire project with visualizations, open:
+`ResNet_Project_Walkthrough.ipynb`
+
 ### 1. Batch Normalization & Convergence Comparison
 Run the comparison between ResNet-18 with and without BN. You can toggle augmentation to see how it interacts with BN:
 
