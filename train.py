@@ -35,3 +35,28 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size, shuffle
 net = ResNet18(num_classes=100, use_bn=False).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=lr, momentum=0.9, weight_decay=5e-4)
+
+# 4. Training Function
+def train(epoch):
+    net.train()
+    train_loss = 0
+    correct = 0
+    total = 0
+    for batch_idx, (inputs, targets) in enumerate(trainloader):
+        inputs, targets = inputs.to(device), targets.to(device)
+        optimizer.zero_grad()
+        outputs = net(inputs)
+        loss = criterion(outputs, targets)
+        loss.backward()
+        optimizer.step()
+
+        train_loss += loss.item()
+        _, predicted = outputs.max(1)
+        total += targets.size(0)
+        correct += predicted.eq(targets).sum().item()
+
+    print(f'Epoch {epoch} | Loss: {train_loss/(batch_idx+1):.3f} | Acc: {100.*correct/total:.2f}%')
+
+# Run for a few epochs to test
+for epoch in range(1, 6):
+    train(epoch)
