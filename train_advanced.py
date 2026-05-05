@@ -4,7 +4,7 @@ import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
 import numpy as np
-from models import ResNet18
+from model import ResNet18
 from tqdm import tqdm
 import json
 

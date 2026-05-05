@@ -105,6 +105,7 @@ def train_model(use_bn):
 
 # Run experiments
 suffix = "aug" if args.aug else "noaug"
+os.makedirs('results', exist_ok=True)
 
 print(f"Starting experiment: WITHOUT Batch Normalization (Augmentation: {args.aug})...")
 history_no_bn = train_model(use_bn=False)

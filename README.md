@@ -4,7 +4,7 @@ This project explores the implementation of ResNet-18, the impact of Batch Norma
 
 ## Project Structure
 
-- `models.py`: ResNet-18 implementation from scratch.
+- `model.py`: ResNet-18 implementation from scratch.
 - `train.py`: Basic training script for the scratch model.
 - `compare_bn.py`: Experiment comparing training with and without Batch Normalization (Week 1 & 2). Supports toggling augmentation and setting epochs.
 - `transfer_learning.py`: Script to fine-tune a pretrained ResNet-18 on CIFAR-100 (Week 2). Logs both accuracy and training loss.

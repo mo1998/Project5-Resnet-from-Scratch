@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torchvision
 import torchvision.transforms as transforms
-from models import ResNet18 as CustomResNet18
+from model import ResNet18 as CustomResNet18
 from torchvision.models import resnet18 as TorchResNet18
 from torch.utils.data import DataLoader
 from sklearn.metrics import confusion_matrix
